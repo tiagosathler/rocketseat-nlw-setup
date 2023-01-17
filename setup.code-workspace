@@ -1,10 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "server"
+			"path": "."
 		},
 		{
-			"path": "."
+			"path": "server"
 		},
 		{
 			"path": "web"
