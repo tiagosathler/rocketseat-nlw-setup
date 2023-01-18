@@ -1,20 +1,12 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import Fastify from 'fastify';
-import { PrismaClient } from '@prisma/client';
+import cors from '@fastify/cors';
+import appRoutes from './routes';
 
 const app = Fastify();
-const prisma = new PrismaClient();
 
-app.get('/', async () => {
-  const habits = await prisma.habit.findMany({
-    where: {
-      title: {
-        startsWith: 'Beber',
-      },
-    },
-  });
-
-  return habits;
-});
+app.register(cors);
+app.register(appRoutes);
 
 app
   .listen({
