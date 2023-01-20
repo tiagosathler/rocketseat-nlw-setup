@@ -2,7 +2,17 @@ import { Dimensions } from 'react-native';
 
 export const WEEK_DAYS = 7;
 
-export const WEEK_DAYS_LABELS = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
+export const WEEK_DAYS_ABBR = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
+
+export const WEEK_DAYS_NAMES = [
+  'Domingo',
+  'Segunda-feira',
+  'Terça-feira',
+  'Quarta-feira',
+  'Quinta-feira',
+  'Sexta-feira',
+  'Sábado',
+];
 
 export const SCREEN_HORIZONTAL_PADDING = (32 * 2) / 5;
 
