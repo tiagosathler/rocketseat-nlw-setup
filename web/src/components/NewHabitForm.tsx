@@ -1,23 +1,87 @@
 import { Check } from 'phosphor-react';
-import React from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
+
+import api from '../lib/axios';
+import { WEEK_DAYS_NAMES } from '../utils/constants';
+import CheckboxCustom from './Checkbox';
 
 export default function NewHabitForm() {
+  const [title, setTitle] = useState<string>('');
+
+  const [weekDays, setWeekDays] = useState<number[]>([]);
+
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+
+    if (weekDays.length === 0) {
+      return;
+    }
+
+    api
+      .post('habits', {
+        title,
+        weekDays,
+      })
+      .then(() => {
+        window.alert('Hábito criado com sucesso');
+      })
+      .catch((e) => {
+        console.error(e);
+        window.alert(`Falha do servidor: ${e.message}`);
+      })
+      .then(() => {
+        setTitle('');
+        setWeekDays([]);
+      });
+  }
+
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+    const {
+      target: { value },
+    } = event;
+    setTitle(value);
+  }
+
+  function handleToggleCheckbox(i: number) {
+    if (weekDays.includes(i)) {
+      setWeekDays((prevState) => prevState.filter((e) => e !== i));
+    } else {
+      setWeekDays((prevState) => [...prevState, i]);
+    }
+  }
+
   return (
-    <form className="w-full flex flex-col mt-6">
+    <form onSubmit={handleSubmit} className="w-full flex flex-col mt-6">
       <label htmlFor="title" className="font-semibold leading-tight">
         Qual seu comprometimento?
       </label>
 
       <input
+        className="p-4 rounded-lg mt-3 bg-zinc-800 text-white placeholder:text-zinc-400"
         type="text"
         id="title"
+        value={title}
         placeholder="ex: Exercícios, dormir, etc"
-        className="p-4 rounded-lg mt-3 bg-zinc-800 text-white placeholder:text-zinc-400"
+        onChange={handleInputChange}
+        required
       />
 
       <label htmlFor="confirm-btn" className="font-semibold leading-tight mt-4">
         Qual a recorrência?
       </label>
+
+      <div className="flex flex-col gap-2 mt-3">
+        {WEEK_DAYS_NAMES.map((weekDay, i) => (
+          <CheckboxCustom
+            key={`week_day_name_${i}`}
+            rootStyle="flex items-center gap-3 group"
+            itemStyle="text-white leading-tight"
+            item={weekDay}
+            onCheckedChange={() => handleToggleCheckbox(i)}
+            checked={weekDays.includes(i)}
+          />
+        ))}
+      </div>
 
       <button
         type="submit"
