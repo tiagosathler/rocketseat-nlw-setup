@@ -12,9 +12,9 @@ export default function Header() {
       <Dialog.Root>
         <Dialog.Trigger
           type="button"
-          className="border border-violet-500 font-semibold rounded-lg px-6 p-4 flex items-center gap-3 hover:border-violet-300"
+          className="border border-violet-500 font-semibold rounded-lg px-6 p-4 flex items-center gap-3 hover:border-violet-600 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 focus:ring-offset-background"
         >
-          <Plus size={20} className="text-violet-500"></Plus>
+          <Plus size={20} className="text-violet-500  "></Plus>
           Novo hábito
         </Dialog.Trigger>
 
@@ -28,7 +28,7 @@ export default function Header() {
 
             <NewHabitForm />
 
-            <Dialog.Close className="absolute right-6 top-6 text-zinc-400 hover:text-zinc-200">
+            <Dialog.Close className="absolute right-6 top-6 rounded-lg text-zinc-400 hover:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 focus:ring-offset-zinc-900">
               <X size={24} aria-label="Fechar" />
             </Dialog.Close>
           </Dialog.Content>
