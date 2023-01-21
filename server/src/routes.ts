@@ -6,7 +6,7 @@ import {
   getSummaryController } from './controllers';
 
 export default async function appRoutes(app: FastifyInstance): Promise<void> {
-  app.post('/habits', createHabitController);
+  app.post('/habit', createHabitController);
 
   app.get('/day', getDayController);
 

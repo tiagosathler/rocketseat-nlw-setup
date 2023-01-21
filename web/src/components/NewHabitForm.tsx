@@ -3,7 +3,7 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 
 import api from '../lib/axios';
 import { WEEK_DAYS_NAMES } from '../utils/constants';
-import CheckboxCustom from './Checkbox';
+import CheckboxCustom from './CheckboxCustom';
 
 export default function NewHabitForm() {
   const [title, setTitle] = useState<string>('');
@@ -18,7 +18,7 @@ export default function NewHabitForm() {
     }
 
     api
-      .post('habits', {
+      .post('/habit', {
         title,
         weekDays,
       })
@@ -57,7 +57,7 @@ export default function NewHabitForm() {
       </label>
 
       <input
-        className="p-4 rounded-lg mt-3 bg-zinc-800 text-white placeholder:text-zinc-400"
+        className="p-4 rounded-lg mt-3 bg-zinc-800 text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 focus:ring-offset-zinc-900"
         type="text"
         id="title"
         value={title}
@@ -74,7 +74,6 @@ export default function NewHabitForm() {
         {WEEK_DAYS_NAMES.map((weekDay, i) => (
           <CheckboxCustom
             key={`week_day_name_${i}`}
-            rootStyle="flex items-center gap-3 group"
             itemStyle="text-white leading-tight"
             item={weekDay}
             onCheckedChange={() => handleToggleCheckbox(i)}
@@ -86,7 +85,7 @@ export default function NewHabitForm() {
       <button
         type="submit"
         id="confirm-btn"
-        className="mt-6 rounded-lg p-4 flex items-center justify-center gap-3 font-semibold bg-green-600 hover:bg-green-500"
+        className="mt-6 rounded-lg p-4 flex items-center justify-center gap-3 font-semibold bg-green-600 hover:bg-green-500 transition-all focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-zinc-900"
       >
         <Check size={20} weight="bold" />
         Confirmar

@@ -2,11 +2,12 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 'latest',
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
+    project: ['./tsconfig.json'],
   },
   settings: {
     react: {
@@ -25,13 +26,22 @@ module.exports = {
     node: true,
   },
   extends: [
+    'plugin:react/recommended',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended', // Make sure this is always the last element in the array.
+    'airbnb/hooks',
+    'prettier',
   ],
-  plugins: ['simple-import-sort', 'prettier'],
+  plugins: [
+    'react',
+    'react-hooks',
+    '@typescript-eslint',
+    'simple-import-sort',
+    'prettier',
+  ],
   rules: {
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
     'react/react-in-jsx-scope': 'off',
