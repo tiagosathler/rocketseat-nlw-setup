@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable react-native/no-inline-styles */
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { View, ScrollView, Alert } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 
 import Header from '../components/Header';
 import HabitDay from '../components/HabitDay';
@@ -32,26 +31,28 @@ export default function Home() {
   const amountOfDaysToFill = MIN_SUMMARY_DATES_SIZES - daysFromYearsStart.length;
 
   const { navigate } = useNavigation();
+
   const [loading, setLoading] = useState(true);
   const [summary, setSummary] = useState<SummaryArray>([]);
 
-  const fetchData = useCallback(async () => {
-    try {
-      setLoading(true);
-      const response = await api.get('/summary');
-      const data = response.data as SummaryArray;
-      setSummary(data);
-    } catch (error) {
-      Alert.alert('Não foi possível carregar o sumário de hábitos');
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
+  const fetchData = useCallback(() => {
+    setLoading(true);
+    api
+      .get('/summary')
+      .then((response) => {
+        const data = response.data as SummaryArray;
+        setSummary(data);
+      })
+      .catch((e) => {
+        console.error(e);
+        Alert.alert('Não foi possível carregar o sumário de hábitos');
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+  useFocusEffect(fetchData);
 
   if (loading) {
     return <Loading />;
