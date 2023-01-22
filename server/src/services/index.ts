@@ -44,20 +44,20 @@ async function createHabitService(habit: IHabit): Promise<void> {
   });
 }
 
-async function getDayService(arg: IDate): Promise<IGetDay> {
-  const parsedDate = dayjs(arg.date).startOf('day');
+async function getDayService({ date }: IDate): Promise<IGetDay> {
+  const parsedDate = dayjs(date).startOf('day');
   const weekDay = parsedDate.get('day');
-
-  const possibleHabits = await prisma.habit.findMany({
-    where: { created_at: { lte: arg.date },
-      weekDays: { some: {
-        week_day: weekDay } },
-    },
-  });
 
   const day = await prisma.day.findFirst({
     where: { date: parsedDate.toDate() },
     include: { dayHabits: true },
+  });
+
+  const possibleHabits = await prisma.habit.findMany({
+    where: { created_at: { lte: date },
+      weekDays: { some: {
+        week_day: weekDay } },
+    },
   });
 
   const completedHabits = day?.dayHabits.map((dayHabit) => dayHabit.habit_id);

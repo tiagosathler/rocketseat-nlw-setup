@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Habit Backend Server",
   "main": "index.js",
   "scripts": {
     "dev": "tsx --watch src/server.ts",

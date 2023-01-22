@@ -2,10 +2,9 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
-import ip from 'ip';
 import appRoutes from './routes';
-
-const host = ip.address();
+import './lib/dayjs';
+import host from './lib/ip';
 
 const app = Fastify();
 
