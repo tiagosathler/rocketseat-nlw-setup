@@ -26,7 +26,7 @@ export default function New() {
 
   function handleSubmit() {
     api
-      .post('/habits', {
+      .post('/habit', {
         title: title.trim(),
         weekDays,
       })
@@ -65,7 +65,7 @@ export default function New() {
         <Text className="mt-6 text-white font-semibold text-base">Qual seu comprometimento?</Text>
 
         <TextInput
-          className="h-12 pl-4 rounded-lg mt-3 bg-zinc-900 text-white border-2 border-zinc-800 focus:border-x-green-600"
+          className="h-12 pl-4 rounded-lg mt-3 bg-zinc-900 text-white border-2 border-zinc-800 focus:border-green-600"
           placeholder="Exercícios, dormir bem, etc"
           placeholderTextColor={colors.zinc[400]}
           value={title}

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const host = '192.168.5.158';
+const host = import.meta.env.VITE_SERVER_ADDRESS as string;
 
 const api = axios.create({
   baseURL: `http://${host}:3333`,
