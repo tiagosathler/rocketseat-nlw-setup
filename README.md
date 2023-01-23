@@ -6,7 +6,7 @@ Projeto desenvolvido entre os dias 16 a 22 de Janeiro de 2023 no 11º evento NLW
 
 ### Objetivos
 >
-> Criar aplicações três aplicações para Habits - *de bons hábitos se faz uma vida saudável!*
+> Criar três aplicações para **Habits** - *de bons hábitos se faz uma vida saudável!*
 >
 > - **server** - API Rest de consulta e registros dos hábitos;
 > - **web** - aplicação frontend de navegação no desktop;
@@ -20,7 +20,7 @@ A API Rest foi desenvolvida em Node com Typescript e as ferramentas [Fastify](ht
 
 #### Web
 
-O frontend para Web / desktop foi desenvolvido em Typescript com [React.js](https://pt-br.reactjs.org/), gerado pelo [Vite.js](https://vitejs.dev/), uma poderosa ferramenta para criação e compilação de aplicações web, [Radix-UI](https://www.radix-ui.com/)  para importar componentes React acessíveis e sem estilos, [TailwindCSS](https://tailwindcss.com/) para estilização, [Phoshor Icons](https://phosphoricons.com/) para usar ícones prontos. Também incorporei o ESLint e Prettier.
+O frontend para Web / desktop foi desenvolvido em Typescript com [React.js](https://pt-br.reactjs.org/), gerado pelo [Vite.js](https://vitejs.dev/), uma poderosa ferramenta para criação e compilação de aplicações web, [Radix-UI](https://www.radix-ui.com/)  para importar componentes React acessíveis e sem estilos, [TailwindCSS](https://tailwindcss.com/) para estilização, [Phoshor Icons](https://phosphoricons.com/) para utilização de ícones. Também incorporei o ESLint e Prettier.
 
 #### Mobile
 
@@ -32,7 +32,7 @@ A aplicação em dispositivos móveis foi desenvolvida em [React Native](https:/
 
 Comece primeiro com o `server`e depois siga com as aplicações frontend.
 
-#### **server**
+### **server**
 
 De dentro da pasta `server`, instale as dependências:
 
@@ -70,9 +70,9 @@ Observe se a mensagem abaixo está sendo exibida no seu terminal e indicando no 
 **Observação:**
 *Toda vez que a aplicação `server` é executada são modificados os arquivos `.env` das aplicações `web` e `mobile` com o respectivo IP de sua máquina para que elas executem perfeitamente. Mas você poderá editá-los com o IP correto de sua máquina*
 
-#### **web**
+### **web**
 
-![](https://github.com/tiagosathler/rocketseat-nlw-setup/tree/master/misc/web.png)
+![](https://github.com/tiagosathler/rocketseat-nlw-setup/blob/master/misc/web.png)
 Através de outro terminal, entre na pasta `web` e instale as dependências:
 
 ```
@@ -87,9 +87,9 @@ npm run dev
 
 Entre na página através do caminho [http://localhost:5173/](http://localhost:5173/).
 
-#### **mobile**
+### **mobile**
 
-![](https://github.com/tiagosathler/rocketseat-nlw-setup/tree/master/misc/mobile.png)
+![](https://github.com/tiagosathler/rocketseat-nlw-setup/blob/master/misc/mobile.png)
 
 >
 >Para executar a aplicação Mobile é necessário ter o **ExpoGo** instalado no seu dispositivo [Android](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR&gl=US) ou [iPhone](https://apps.apple.com/br/app/expo-go/id982107779). Obviamente, seu dispositivo deverá estar na mesma rede Wifi de seu roteador. Você também poderá usá-lo através de um emulador Android, se preferir.
