@@ -26,6 +26,16 @@ O frontend para Web / desktop foi desenvolvido em Typescript com [React.js](http
 
 A aplicação em dispositivos móveis foi desenvolvida em [React Native](https://reactnative.dev/) usando a ferramenta [Expo](https://expo.dev/) para criar e buildar a aplicação tanto para dispositivos Android quanto iOS. A estilização foi aprimorada com [NativeWind](https://www.nativewind.dev/) que utiliza o TailwindCSS no React Native. Claro, não poderia faltar ESLint e Prettier.
 
+### Carga horária
+
+Este projeto demandou mais de 10h de vídeos aulas da Rocketseat e mais de 34h de trabalho desenvolvendo o projeto.
+
+[Wakatime Report](https://wakatime.com/@tiagosathler/projects/xshjjootwy?start=2023-01-15&end=2023-01-23)
+
+[![wakatime](https://wakatime.com/badge/github/tiagosathler/rocketseat-nlw-setup.svg)](https://wakatime.com/badge/github/tiagosathler/rocketseat-nlw-setup)
+
+![](https://github.com/tiagosathler/rocketseat-nlw-setup/blob/master/misc/wakatime.png)
+
 ### Instruções
 >
 > É necessário ter o Node na versão 16 LTS instalado em sua máquina.
