@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import React from 'react';
 import './src/lib/dayjs';
+import { getScheduleNotification, scheduleNotification } from './src/lib/notifications';
 
 import {
   useFonts,
@@ -9,7 +11,7 @@ import {
   Inter_800ExtraBold as inter800ExtraBold,
 } from '@expo-google-fonts/inter';
 
-import { StatusBar } from 'react-native';
+import { StatusBar, Button } from 'react-native';
 
 import { Loading } from './src/components/Loading';
 import { Routes } from './src/routes';
@@ -27,6 +29,8 @@ export default function App() {
   return (
     <>
       <Routes />
+      <Button title="Enviar notificação" onPress={scheduleNotification} />
+      <Button title="Buscar notificações" onPress={getScheduleNotification} />
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
     </>
   );
